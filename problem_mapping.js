@@ -65,7 +65,7 @@ problem_mapping = {
                 "passed": 0,
                 "total": 10000
             },
-            "Python: closest_int_same_weight.py": { 
+            "Python: closest_int_same_weight.py": {
                 "passed": 0,
                 "total": 10000
             }
@@ -690,7 +690,7 @@ problem_mapping = {
         },
         "7.01 Merge two sorted lists": {
             "C++: sorted_lists_merge.cc": {
-                "passed": 0,
+                "passed": 501,
                 "total": 501
             },
             "Java: SortedListsMerge.java": {
@@ -704,7 +704,7 @@ problem_mapping = {
         },
         "7.02 Reverse a single sublist": {
             "C++: reverse_sublist.cc": {
-                "passed": 0,
+                "passed": 210,
                 "total": 210
             },
             "Java: ReverseSublist.java": {
@@ -718,7 +718,7 @@ problem_mapping = {
         },
         "7.03 Test for cyclicity": {
             "C++: is_list_cyclic.cc": {
-                "passed": 0,
+                "passed": 102,
                 "total": 102
             },
             "Java: IsListCyclic.java": {
@@ -732,7 +732,7 @@ problem_mapping = {
         },
         "7.04 Test for overlapping lists---lists are cycle-free": {
             "C++: do_terminated_lists_overlap.cc": {
-                "passed": 0,
+                "passed": 102,
                 "total": 106
             },
             "Java: DoTerminatedListsOverlap.java": {
@@ -760,7 +760,7 @@ problem_mapping = {
         },
         "7.06 Delete a node from a singly linked list": {
             "C++: delete_node_from_list.cc": {
-                "passed": 0,
+                "passed": 512,
                 "total": 512
             },
             "Java: DeleteNodeFromList.java": {
@@ -774,7 +774,7 @@ problem_mapping = {
         },
         "7.07 Remove the kth last element from a list": {
             "C++: delete_kth_last_from_list.cc": {
-                "passed": 0,
+                "passed": 2,
                 "total": 306
             },
             "Java: DeleteKthLastFromList.java": {
@@ -788,7 +788,7 @@ problem_mapping = {
         },
         "7.08 Remove duplicates from a sorted list": {
             "C++: remove_duplicates_from_sorted_list.cc": {
-                "passed": 0,
+                "passed": 203,
                 "total": 203
             },
             "Java: RemoveDuplicatesFromSortedList.java": {
@@ -802,7 +802,7 @@ problem_mapping = {
         },
         "7.09 Implement cyclic right shift for singly linked lists": {
             "C++: list_cyclic_right_shift.cc": {
-                "passed": 0,
+                "passed": 507,
                 "total": 507
             },
             "Java: ListCyclicRightShift.java": {
@@ -816,7 +816,7 @@ problem_mapping = {
         },
         "7.10 Implement even-odd merge": {
             "C++: even_odd_list_merge.cc": {
-                "passed": 0,
+                "passed": 1015,
                 "total": 1015
             },
             "Java: EvenOddListMerge.java": {
@@ -830,7 +830,7 @@ problem_mapping = {
         },
         "7.11 Test whether a singly linked list is palindromic": {
             "C++: is_list_palindromic.cc": {
-                "passed": 0,
+                "passed": 205,
                 "total": 203
             },
             "Java: IsListPalindromic.java": {
@@ -844,7 +844,7 @@ problem_mapping = {
         },
         "7.12 Implement list pivoting": {
             "C++: pivot_list.cc": {
-                "passed": 0,
+                "passed": 204,
                 "total": 208
             },
             "Java: PivotList.java": {
@@ -1002,7 +1002,7 @@ problem_mapping = {
     "Chapter 09: Binary Trees": {
         "9.01 Test if a binary tree is height-balanced": {
             "C++: is_tree_balanced.cc": {
-                "passed": 0,
+                "passed": 3852,
                 "total": 3852
             },
             "Java: IsTreeBalanced.java": {
@@ -1016,7 +1016,7 @@ problem_mapping = {
         },
         "9.02 Test if a binary tree is symmetric": {
             "C++: is_tree_symmetric.cc": {
-                "passed": 0,
+                "passed": 3852,
                 "total": 3852
             },
             "Java: IsTreeSymmetric.java": {
@@ -1030,7 +1030,7 @@ problem_mapping = {
         },
         "9.03 Compute the lowest common ancestor in a binary tree": {
             "C++: lowest_common_ancestor.cc": {
-                "passed": 0,
+                "passed": 948,
                 "total": 948
             },
             "Java: LowestCommonAncestor.java": {
@@ -1044,7 +1044,7 @@ problem_mapping = {
         },
         "9.04 Compute the LCA when nodes have parent pointers": {
             "C++: lowest_common_ancestor_with_parent.cc": {
-                "passed": 0,
+                "passed": 948,
                 "total": 948
             },
             "Java: LowestCommonAncestorWithParent.java": {
@@ -1058,7 +1058,7 @@ problem_mapping = {
         },
         "9.05 Sum the root-to-leaf paths in a binary tree": {
             "C++: sum_root_to_leaf.cc": {
-                "passed": 0,
+                "passed": 3849,
                 "total": 3849
             },
             "Java: SumRootToLeaf.java": {
@@ -1072,7 +1072,7 @@ problem_mapping = {
         },
         "9.06 Find a root to leaf path with specified sum": {
             "C++: path_sum.cc": {
-                "passed": 0,
+                "passed": 7690,
                 "total": 7690
             },
             "Java: PathSum.java": {
@@ -1100,7 +1100,7 @@ problem_mapping = {
         },
         "9.08 Compute the kth node in an inorder traversal": {
             "C++: kth_node_in_tree.cc": {
-                "passed": 0,
+                "passed": 3851,
                 "total": 3851
             },
             "Java: KthNodeInTree.java": {
@@ -1114,7 +1114,7 @@ problem_mapping = {
         },
         "9.09 Compute the successor": {
             "C++: successor_in_tree.cc": {
-                "passed": 0,
+                "passed": 948,
                 "total": 948
             },
             "Java: SuccessorInTree.java": {
@@ -1128,7 +1128,7 @@ problem_mapping = {
         },
         "9.10 Implement an inorder traversal with constant space": {
             "C++: tree_with_parent_inorder.cc": {
-                "passed": 0,
+                "passed": 3852,
                 "total": 3852
             },
             "Java: TreeWithParentInorder.java": {
@@ -2386,7 +2386,7 @@ problem_mapping = {
         },
         "17.04 The 3-sum problem": {
             "C++: three_sum.cc": {
-                "passed": 0,
+                "passed": 1,
                 "total": 1008
             },
             "Java: ThreeSum.java": {
@@ -2458,7 +2458,7 @@ problem_mapping = {
     "Chapter 18: Graphs": {
         "18.01 Search a maze": {
             "C++: search_maze.cc": {
-                "passed": 0,
+                "passed": 101,
                 "total": 101
             },
             "Java: SearchMaze.java": {
@@ -2472,7 +2472,7 @@ problem_mapping = {
         },
         "18.02 Paint a Boolean matrix": {
             "C++: matrix_connected_regions.cc": {
-                "passed": 0,
+                "passed": 50,
                 "total": 50
             },
             "Java: MatrixConnectedRegions.java": {
@@ -2500,7 +2500,7 @@ problem_mapping = {
         },
         "18.04 Deadlock detection": {
             "C++: deadlock_detection.cc": {
-                "passed": 0,
+                "passed": 71,
                 "total": 71
             },
             "Java: DeadlockDetection.java": {
@@ -2514,7 +2514,7 @@ problem_mapping = {
         },
         "18.05 Clone a graph": {
             "C++: graph_clone.cc": {
-                "passed": 0,
+                "passed": 91,
                 "total": 91
             },
             "Java: GraphClone.java": {
@@ -2528,7 +2528,7 @@ problem_mapping = {
         },
         "18.06 Making wired connections": {
             "C++: is_circuit_wirable.cc": {
-                "passed": 0,
+                "passed": 85,
                 "total": 85
             },
             "Java: IsCircuitWirable.java": {
@@ -2542,7 +2542,7 @@ problem_mapping = {
         },
         "18.07 Transform one string to another": {
             "C++: string_transformability.cc": {
-                "passed": 0,
+                "passed": 48,
                 "total": 48
             },
             "Java: StringTransformability.java": {

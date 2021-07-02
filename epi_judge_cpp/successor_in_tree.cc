@@ -5,6 +5,27 @@
 BinaryTreeNode<int>* FindSuccessor(
     const unique_ptr<BinaryTreeNode<int>>& node) {
   // TODO - you fill in here.
+  if(!node)
+      return nullptr;
+  auto tree = node.get();
+  if(tree->right)
+  {
+      //go the left most of the subtree;
+      tree = tree->right.get();
+      while(tree->left)
+          tree = tree->left.get();
+      return tree;
+  }
+  if(!tree->right and tree->parent and tree == tree->parent->left.get())
+      return tree->parent;
+  if(!tree->right and tree->parent and tree == tree->parent->right.get())
+  {
+      //move up till parent is left node;
+      tree = tree->parent;
+      while(tree->parent and tree == tree->parent->right.get())
+          tree = tree->parent;
+      return tree->parent;
+  }
   return nullptr;
 }
 int FindSuccessorWrapper(const unique_ptr<BinaryTreeNode<int>>& tree,

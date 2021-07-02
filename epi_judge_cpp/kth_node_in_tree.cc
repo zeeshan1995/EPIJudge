@@ -19,7 +19,15 @@ struct BinaryTreeNode {
 const BinaryTreeNode<int>* FindKthNodeBinaryTree(
     const unique_ptr<BinaryTreeNode<int>>& tree, int k) {
   // TODO - you fill in here.
-  return nullptr;
+  if(!tree or k<0)
+      return nullptr;
+
+  auto left_size = tree->left ? tree->left->size : 0;
+  if(left_size + 1 == k)
+      return tree.get();
+  if(left_size >= k)
+      return FindKthNodeBinaryTree(tree->left, k);
+  return FindKthNodeBinaryTree(tree->right, k-left_size-1);
 }
 namespace test_framework {
 template <typename KeyT>

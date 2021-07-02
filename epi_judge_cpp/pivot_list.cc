@@ -11,7 +11,38 @@ using std::shared_ptr;
 shared_ptr<ListNode<int>> ListPivoting(const shared_ptr<ListNode<int>>& l,
                                        int x) {
   // TODO - you fill in here.
-  return nullptr;
+  auto less_head = make_shared<ListNode<int>>(0, nullptr);
+  auto equal_head = make_shared<ListNode<int>>(0, nullptr);
+  auto greater_head = make_shared<ListNode<int>>(0, nullptr);
+
+  auto less = less_head, equal = equal_head, greater = greater_head;
+  auto head = l;
+
+  while(head)
+  {
+      if(head->data < x)
+      {
+          less->next = head;
+          less = less->next;
+      }
+      else if(head->data > x)
+      {
+          greater->next = head;
+          greater = greater->next;
+      }
+      else
+      {
+          equal->next = head;
+          equal = equal->next;
+      }
+      auto tmp = head->next;
+      head->next = nullptr;
+      head = tmp;
+  }
+
+  equal->next = greater_head->next;
+  less->next = equal_head->next;
+  return less_head->next;
 }
 std::vector<int> ListToVector(const shared_ptr<ListNode<int>>& l) {
   std::vector<int> v;
@@ -20,6 +51,8 @@ std::vector<int> ListToVector(const shared_ptr<ListNode<int>>& l) {
     v.push_back(it->data);
     it = it->next.get();
   }
+
+  auto [x, y] = std::pair<int, int>{2,3};
   return v;
 }
 

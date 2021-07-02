@@ -6,7 +6,15 @@ using std::shared_ptr;
 
 shared_ptr<ListNode<int>> RemoveDuplicates(const shared_ptr<ListNode<int>>& L) {
   // TODO - you fill in here.
-  return nullptr;
+  auto cur = L;
+  while(cur and cur->next)
+  {
+      if(cur->data == cur->next->data)
+          cur->next = cur->next->next;
+      else
+          cur = cur->next;
+  }
+  return L;
 }
 
 int main(int argc, char* argv[]) {

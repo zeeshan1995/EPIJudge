@@ -6,10 +6,30 @@
 using std::deque;
 using std::vector;
 
-void FlipColor(int x, int y, vector<deque<bool>>* image_ptr) {
+bool PathElementIsFeasible(int x, int y, bool type, vector<deque<bool>>& image_ptr)
+{
+  if (!(0 <= x && x < image_ptr.size() && 0 <= y &&
+        y < image_ptr[x].size() && image_ptr[x][y] == type)) {
+    return false;
+  }
+  return true;
+}
+
+
+void FlipColor(int x, int y, vector<deque<bool>>& image_ptr) {
   // TODO - you fill in here.
+  image_ptr[x][y] = !image_ptr[x][y];
+  std::vector<std::pair<int, int>> shift = {{0,-1}, {0,1}, {-1,0}, {1,0}};
+
+  for(auto s : shift)
+  {
+      int next_x = s.first + x, next_y = s.second + y;
+      if(PathElementIsFeasible(next_x, next_y, !image_ptr[x][y], image_ptr))
+          FlipColor(next_x, next_y, image_ptr);
+  }
   return;
 }
+
 vector<vector<int>> FlipColorWrapper(TimedExecutor& executor, int x, int y,
                                      vector<vector<int>> image) {
   vector<deque<bool>> b;
@@ -23,7 +43,7 @@ vector<vector<int>> FlipColorWrapper(TimedExecutor& executor, int x, int y,
     b.push_back(tmp);
   }
 
-  executor.Run([&] { FlipColor(x, y, &b); });
+  executor.Run([&] { FlipColor(x, y, b); });
 
   image.resize(b.size());
 

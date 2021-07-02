@@ -11,8 +11,32 @@ struct GraphVertex {
   vector<GraphVertex*> edges;
 };
 
+bool dfs(GraphVertex* s)
+{
+    for(auto & v : s->edges)
+    {
+        if(v->d == s->d)
+            return false;
+        if(v->d == -1)
+        {
+            v->d = (s->d + 1)%2;
+            if(not dfs(v))
+                return false;
+        }
+    }
+    return true;
+}
 bool IsAnyPlacementFeasible(vector<GraphVertex>* graph) {
   // TODO - you fill in here.
+  for(auto & v : *graph)
+  {
+      if(v.d == -1)
+      {
+          v.d = 0;
+          if(not dfs(&v))
+              return false;
+      }
+  }
   return true;
 }
 struct Edge {

@@ -5,12 +5,42 @@
 #include "test_framework/generic_test.h"
 #include "test_framework/test_failure.h"
 #include "test_framework/timed_executor.h"
+#include <utility>
 using std::unique_ptr;
+
+std::pair<bool, BinaryTreeNode<int>*> found(const unique_ptr<BinaryTreeNode<int>>& tree,
+                         const unique_ptr<BinaryTreeNode<int>>& node0,
+                         const unique_ptr<BinaryTreeNode<int>>& node1) {
+
+    if(!tree)
+        return {false, nullptr};
+
+    if(tree==node1 and tree==node0)
+        return {true, tree.get()};
+    
+    auto left = found(tree->left, node0, node1);
+    auto right = found(tree->right, node0, node1);
+
+    if(right.second or left.second)
+        return right.second ? right : left; 
+    if(left.first and right.first)
+        return {true, tree.get()};
+    if((right.first or left.first) and (tree==node0 or tree==node1))
+        return {true, tree.get()};
+    if(right.first or left.first)
+        return {true, nullptr};
+
+    if(tree==node0 or tree==node1)
+        return {true, nullptr};
+
+    return {false,nullptr};
+}
 BinaryTreeNode<int>* Lca(const unique_ptr<BinaryTreeNode<int>>& tree,
                          const unique_ptr<BinaryTreeNode<int>>& node0,
                          const unique_ptr<BinaryTreeNode<int>>& node1) {
-  // TODO - you fill in here.
-  return nullptr;
+  if(!tree)
+      return nullptr;
+  return found(tree, node0, node1).second;
 }
 int LcaWrapper(TimedExecutor& executor,
                const unique_ptr<BinaryTreeNode<int>>& tree, int key0,

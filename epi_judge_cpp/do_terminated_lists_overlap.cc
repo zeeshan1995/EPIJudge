@@ -1,4 +1,5 @@
 #include <memory>
+#include <unordered_set>
 
 #include "list_node.h"
 #include "test_framework/generic_test.h"
@@ -9,6 +10,18 @@ using std::shared_ptr;
 shared_ptr<ListNode<int>> OverlappingNoCycleLists(
     shared_ptr<ListNode<int>> l0, shared_ptr<ListNode<int>> l1) {
   // TODO - you fill in here.
+  std::unordered_set<shared_ptr<ListNode<int>>> s;
+  while(l1)
+  {
+      s.insert(l1);
+      l1 = l1->next;
+  }
+  while(l0)
+  {
+      if(s.find(l0) != s.end())
+          return l0;
+      l0 = l0->next;
+  }
   return nullptr;
 }
 void OverlappingNoCycleListsWrapper(TimedExecutor& executor,

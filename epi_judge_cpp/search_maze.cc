@@ -15,11 +15,6 @@ struct Coordinate {
 
   int x, y;
 };
-vector<Coordinate> SearchMaze(vector<vector<Color>> maze, const Coordinate& s,
-                              const Coordinate& e) {
-  // TODO - you fill in here.
-  return {};
-}
 
 namespace test_framework {
 template <>
@@ -54,6 +49,42 @@ bool PathElementIsFeasible(const vector<vector<Color>>& maze,
          cur == Coordinate{prev.x - 1, prev.y} ||
          cur == Coordinate{prev.x, prev.y + 1} ||
          cur == Coordinate{prev.x, prev.y - 1};
+}
+bool dfs(vector<vector<Color>> & maze, const Coordinate& s, const Coordinate& e, vector<Coordinate> & path)
+{
+    maze[s.x][s.y] = Color::kBlack;
+
+    if(s == e)
+    {
+        path.push_back(s);
+        return true;
+    }
+
+    std::vector<std::pair<int, int>> shift = {{0,-1}, {0,1}, {-1,0}, {1,0}};
+    for(auto x : shift)
+    {
+        Coordinate next{s.x+x.first, s.y+x.second};
+        if(PathElementIsFeasible(maze, s, next))
+        {
+            if(dfs(maze, next, e, path))
+            {
+                path.push_back(s);
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+vector<Coordinate> SearchMaze(vector<vector<Color>> maze, const Coordinate& s,
+                              const Coordinate& e) 
+{
+    if(maze[s.x][s.y] == Color::kBlack or maze[e.x][e.y] == Color::kBlack)
+        return {};
+    vector<Coordinate> path;
+    dfs(maze, s, e, path);
+    std::reverse(path.begin(), path.end());
+    return path;
 }
 
 bool SearchMazeWrapper(TimedExecutor& executor,

@@ -4,12 +4,24 @@
 #include "test_framework/timed_executor.h"
 using std::vector;
 // Returns the number of valid entries after deletion.
-int DeleteDuplicates(vector<int>* A_ptr) {
+int DeleteDuplicates(vector<int>& A) {
   // TODO - you fill in here.
-  return 0;
+  //return std::distance(A.begin(), std::unique(A.begin(), A.end()));
+  if(A.empty())
+      return 0;
+  auto end = 1;
+  while(end < A.size() and A[end]!=A[end-1])
+      ++end;
+  std::cout << end << "\n";
+  for(int i=end+1; i<A.size() and end < A.size(); ++i)
+  {
+      if(A[i]!=A[end-1])
+          A[end++]=A[i];
+  }
+  return end;
 }
 vector<int> DeleteDuplicatesWrapper(TimedExecutor& executor, vector<int> A) {
-  int end = executor.Run([&] { return DeleteDuplicates(&A); });
+  int end = executor.Run([&] { return DeleteDuplicates(A); });
   A.resize(end);
   return A;
 }

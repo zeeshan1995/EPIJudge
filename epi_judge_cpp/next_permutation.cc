@@ -4,7 +4,22 @@
 using std::vector;
 vector<int> NextPermutation(vector<int> perm) {
   // TODO - you fill in here.
-  return {};
+  int max = perm.size()-1;
+  for(int i=perm.size()-1; i>=0; --i)
+  {
+      std::cout << i << " ";
+      if(perm[i] < perm[max])
+      {
+          std::swap(perm[i], perm[max]);
+          break;
+      }
+      else
+          max = i;
+  }
+  std::cout << std::endl;
+  if(max == 0)
+      return {};
+  return perm;
 }
 
 int main(int argc, char* argv[]) {

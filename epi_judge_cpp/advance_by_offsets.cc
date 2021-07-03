@@ -4,7 +4,10 @@
 using std::vector;
 bool CanReachEnd(const vector<int>& max_advance_steps) {
   // TODO - you fill in here.
-  return true;
+  int max = 0;
+  for(int i=0; i<max_advance_steps.size() and max < max_advance_steps.size()-1 and max>=i ; ++i)
+      max = std::max(max, i+max_advance_steps[i]);
+  return max>=max_advance_steps.size()-1;
 }
 
 int main(int argc, char* argv[]) {

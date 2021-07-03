@@ -4,7 +4,21 @@
 using std::vector;
 double BuyAndSellStockTwice(const vector<double>& prices) {
   // TODO - you fill in here.
-  return 0.0;
+  std::vector<double>profit1{0};
+  double buy_price = prices[0];
+  for(int i=1; i<prices.size(); ++i)
+  {
+      profit1.push_back(std::max(profit1.back(), prices[i]-buy_price));
+      buy_price = std::min(buy_price, prices[i]);
+  }
+  double sell_price = prices.back(), profit=profit1.back();
+  for(int i=prices.size()-1; i>0; --i)
+  {
+      profit  = std::max(profit, profit1[i-1] + sell_price - prices[i]);
+      sell_price = std::max(sell_price, prices[i]);
+  }
+
+  return profit;
 }
 
 int main(int argc, char* argv[]) {

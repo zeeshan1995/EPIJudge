@@ -4,7 +4,11 @@
 using std::vector;
 vector<int> PlusOne(vector<int> A) {
   // TODO - you fill in here.
-  return {};
+  int carry = 1;
+  std::transform(A.rbegin(), A.rend(), A.rbegin(), [&carry](int a) { return a+=carry,carry=a>9,a%=10,a;});
+  if(carry)
+      A.insert(A.begin(), carry);
+  return A;
 }
 
 int main(int argc, char* argv[]) {

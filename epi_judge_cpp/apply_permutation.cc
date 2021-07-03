@@ -2,12 +2,24 @@
 
 #include "test_framework/generic_test.h"
 using std::vector;
-void ApplyPermutation(vector<int> perm, vector<int>* A_ptr) {
+void ApplyPermutation(vector<int> perm, vector<int> & A) {
   // TODO - you fill in here.
-  return;
+  for(int i=0; i<perm.size(); ++i)
+  {
+      auto curr = A[i], j = i;
+      while(perm[j]!=-1)
+      {
+          auto next = A[perm[j]];
+          A[perm[j]] = curr;
+          auto tmp = perm[j];
+          perm[j] = -1;
+          j = tmp;
+          curr = next;
+      }
+  }
 }
 vector<int> ApplyPermutationWrapper(const vector<int>& perm, vector<int> A) {
-  ApplyPermutation(perm, &A);
+  ApplyPermutation(perm, A);
   return A;
 }
 

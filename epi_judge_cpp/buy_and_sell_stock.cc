@@ -4,7 +4,15 @@
 using std::vector;
 double BuyAndSellStockOnce(const vector<double>& prices) {
   // TODO - you fill in here.
-  return 0.0;
+  double buy_price = prices[0], profit = 0;
+  for(int i=1; i<prices.size(); ++i)
+  {
+      if(buy_price > prices[i])
+          buy_price = prices[i];
+      else
+          profit = std::max(profit, prices[i] - buy_price);
+  }
+  return profit;
 }
 
 int main(int argc, char* argv[]) {

@@ -482,7 +482,7 @@ problem_mapping = {
         },
         "6.01 Interconvert strings and integers": {
             "C++: string_integer_interconversion.cc": {
-                "passed": 0,
+                "passed": 15002,
                 "total": 15002
             },
             "Java: StringIntegerInterconversion.java": {
@@ -510,7 +510,7 @@ problem_mapping = {
         },
         "6.03 Compute the spreadsheet column encoding": {
             "C++: spreadsheet_encoding.cc": {
-                "passed": 0,
+                "passed": 10000,
                 "total": 10000
             },
             "Java: SpreadsheetEncoding.java": {
@@ -552,7 +552,7 @@ problem_mapping = {
         },
         "6.06 Reverse all the words in a sentence": {
             "C++: reverse_words.cc": {
-                "passed": 0,
+                "passed": 103,
                 "total": 103
             },
             "Java: ReverseWords.java": {
